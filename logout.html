@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logging Out...</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
+    <style>
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #e9ecef 0%, #d1e2ff 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+
+        
+        .logout-message {
+            text-align: center;
+            opacity: 0;
+            transform: scale(0.8);
+            transition: all 0.5s ease-in-out;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1001;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            width: 400px;
+        }
+
+        .logout-message.visible {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .logout-message h1 {
+            font-size: 3rem;
+            color: #4A90E2;
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .logout-message p {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 30px;
+            font-weight: bold; 
+        }
+
+        
+        #animation-container {
+            width: 250px;
+            height: 250px;
+            margin: 20px auto; 
+        }
+    </style>
+</head>
+<body>
+    <div id="logoutMessage" class="logout-message">
+        <h1>Group 7 Edison</h1>
+        <p>E-tracker</p>
+        <div id="animation-container"></div>
+    </div>
+
+    <script>
+        
+        const logoutMessage = document.getElementById('logoutMessage');
+        logoutMessage.classList.add('visible');
+
+        
+        const animationContainer = document.getElementById('animation-container');
+        
+        lottie.loadAnimation({
+            container: animationContainer,
+            renderer: 'svg',
+            loop: true,
+            autoplay: true,
+            path: 'https://assets10.lottiefiles.com/packages/lf20_yr6zz3wv.json'
+        });
+
+        
+        setTimeout(function() {
+            window.location.href = "/login";
+        }, 5000);
+    </script>
+</body>
+</html>
